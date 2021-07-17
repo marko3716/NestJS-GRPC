@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package todo;
+
+import "google/protobuf/empty.proto";
+
+service ToDoController {
+    rpc Add (ToDo) returns (MessageResponse);
+    rpc FindAll (google.protobuf.Empty) returns (ToDoResponse);
+    rpc Update (ToDo) returns (MessageResponse);
+    rpc Delete (ToDo) returns (MessageResponse);
+}
+
+message MessageResponse {
+    string message = 1;
+}
+
+message ToDoResponse {
+    repeated ToDo items = 1;
+}
+
+message ToDo {
+    int32 id = 1;
+    string title = 2;
+}

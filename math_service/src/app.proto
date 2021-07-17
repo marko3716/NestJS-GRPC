@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package math;
+
+service MathController {
+    rpc Sum (INumber) returns (Result);
+    rpc Subtraction (INumber) returns (Result);
+    rpc Multiplication (INumber) returns (Result);
+    rpc Divide (INumber) returns (Result);
+}
+
+message INumber {
+    double a = 1;
+    double b = 2;
+}
+
+message Result {
+    double result = 1;
+}
